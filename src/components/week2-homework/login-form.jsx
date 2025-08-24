@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import LoginButton from './login-button'
+import LoginCheckbox from './login-checkbox'
 import LoginInput from './login-input'
 
 export default function LoginForm() {
@@ -41,6 +42,8 @@ export default function LoginForm() {
     }
   }
 
+  const handleKeepLoginChange = ({ target }) => setKeepLoggedIn(target.checked)
+
   const handleLogin = () => {
     if (!email) {
       setEmailError('아이디(이메일)를 입력해 주세요.')
@@ -59,52 +62,23 @@ export default function LoginForm() {
 
   return (
     <form className="w-xl flex flex-col gap-5">
-      <div>
-        <LoginInput
-          type="email"
-          value={email}
-          onChange={handleEmailChange}
-          error={emailError}
-        />
-      </div>
-      <div>
-        <LoginInput
-          type="password"
-          value={password}
-          onChange={handlePasswordChange}
-          error={passwordError}
-        />
-      </div>
+      <LoginInput
+        type="email"
+        value={email}
+        onChange={handleEmailChange}
+        error={emailError}
+      />
+      <LoginInput
+        type="password"
+        value={password}
+        onChange={handlePasswordChange}
+        error={passwordError}
+      />
       <div className="flex justify-between">
-        <div className="flex items-center">
-          <input
-            type="checkbox"
-            name="keep-logged-in"
-            id="keep-logged-in"
-            checked={keepLoggedIn}
-            onChange={({ target }) => setKeepLoggedIn(target.checked)}
-            className="absolute w-6 h-6 opacity-0 peer"
-          />
-          <label
-            htmlFor="keep-logged-in"
-            className="h-6 text-[#555] text-sm cursor-pointer flex justify-center relative peer-focus-visible:outline-2 peer-focus-visible:outline-black peer-focus-visible:outline-solid"
-          >
-            {keepLoggedIn ? (
-              <img
-                src="/week2-homework/checkbox-checked.svg"
-                alt=""
-                className="inline mr-1.5"
-              />
-            ) : (
-              <img
-                src="/week2-homework/checkbox.svg"
-                alt=""
-                className="inline mr-1.5"
-              />
-            )}
-            자동 로그인
-          </label>
-        </div>
+        <LoginCheckbox
+          keepLoggedIn={keepLoggedIn}
+          onChange={handleKeepLoginChange}
+        />
         <a href="#" rel="noopener noreferrer" className="text-[#0074e9]">
           아이디(이메일)/비밀번호 찾기
           <img
