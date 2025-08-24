@@ -13,7 +13,7 @@ export default function LearnSection({
   className = '',
   ...restProps
 }) {
-  const baseClassNames = '' 
+  const baseClassNames = ''
 
   return (
     <section className={`${baseClassNames} ${className}`.trim()} {...restProps}>
