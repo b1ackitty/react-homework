@@ -1,0 +1,93 @@
+[
+  {
+    "title": "렛뎀 이론",
+    "author": "멜 로빈스",
+    "publisher": "비즈니스북스",
+    "price": 20000,
+    "category": "자기계발"
+  },
+  {
+    "title": "사람을 끌어당기는 우아한 말센스",
+    "author": "신희영",
+    "publisher": "알토북스",
+    "price": 18800,
+    "category": "자기계발"
+  },
+  {
+    "title": "생각이 너무 많은 당신에게",
+    "author": "한창욱",
+    "publisher": "정민미디어",
+    "price": 18000,
+    "category": "자기계발"
+  },
+  {
+    "title": "뇌가 멈추기 전에",
+    "author": "이승훈",
+    "publisher": "21세기북스",
+    "price": 19900,
+    "category": "건강"
+  },
+  {
+    "title": "우리의 낙원에서 만나자",
+    "author": "하태완",
+    "publisher": "북로망스",
+    "price": 19500,
+    "category": "시/에세이"
+  },
+  {
+    "title": "어른의 행복은 조용하다",
+    "author": "태수",
+    "publisher": "페이지2북스",
+    "price": 17800,
+    "category": "시/에세이"
+  },
+  {
+    "title": "호의에 대하여",
+    "author": "문형배",
+    "publisher": "김영사",
+    "price": 18800,
+    "category": "시/에세이"
+  },
+  {
+    "title": "궤도",
+    "author": "서맨사 하비",
+    "publisher": "서해문집",
+    "price": 17000,
+    "category": "소설"
+  },
+  {
+    "title": "월요일 수요일 토요일",
+    "author": "페트라 펠리니",
+    "publisher": "북파머스",
+    "price": 19500,
+    "category": "소설"
+  },
+  {
+    "title": "가공범",
+    "author": "히가시노 게이고",
+    "publisher": "북다",
+    "price": 22000,
+    "category": "소설"
+  },
+  {
+    "title": "혼모노",
+    "author": "성해나",
+    "publisher": "창비",
+    "price": 18000,
+    "category": "소설"
+  },
+  {
+    "title": "팩트풀니스",
+    "author": "한스 로슬링 외",
+    "publisher": "김영사",
+    "price": 23800,
+    "category": "인문"
+  },
+  {
+    "title": "세상은 실제로 어떻게 돌아가는가",
+    "author": "바츨라프 스밀",
+    "publisher": "김영사",
+    "price": 22000,
+    "category": "인문"
+  }
+]
