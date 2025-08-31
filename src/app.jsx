@@ -26,6 +26,15 @@ export default function App() {
             <strong>2주차 과제</strong> - 쿠팡 로그인 UI 개선
           </a>
         </li>
+        <li>
+          <a
+            href="./src/components/week3-homework/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <strong>3주차 과제</strong> - 카드 검색 리스트 UI
+          </a>
+        </li>
       </ul>
     </LearnSection>
   )
