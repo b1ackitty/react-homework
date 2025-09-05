@@ -3,12 +3,12 @@ import react from '@vitejs/plugin-react'
 import path from 'node:path'
 import process from 'node:process'
 import { fileURLToPath } from 'node:url'
-import { defineConfig, loadEnv } from 'vite'
+import { type ConfigEnv, type ProxyOptions, defineConfig, loadEnv } from 'vite'
 import viteCompression from 'vite-plugin-compression'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-export default defineConfig(({ mode }) => {
+export default defineConfig(({ mode }: ConfigEnv) => {
   const env = loadEnv(mode, process.cwd(), '')
   const isProduction = mode === 'production'
 
@@ -21,11 +21,11 @@ export default defineConfig(({ mode }) => {
         ? {
             '/api': {
               target: env.VITE_API_URL || 'http://localhost:4000',
-              rewrite: (path) => path.replace(/^\/api/, ''),
+              rewrite: (path: string) => path.replace(/^\/api/, ''),
               changeOrigin: true,
-            },
+            } as ProxyOptions,
           }
-        : {},
+        : undefined,
     },
     preview: {
       port: 5000,
@@ -44,13 +44,12 @@ export default defineConfig(({ mode }) => {
         '@assets': path.resolve(__dirname, 'src/assets'),
       },
     },
-    define: {
-      'process.env': env,
-    },
     build: {
       outDir: 'dist',
       sourcemap: !isProduction,
-      minify: isProduction ? 'terser' : false,
+      // `as const`를 사용하면 'terser'를 문자열이 아닌,
+      // 정확히 'terser' 리터럴 타입으로 TypeScript가 인식
+      minify: isProduction ? ('terser' as const) : false,
       terserOptions: isProduction
         ? {
             compress: {

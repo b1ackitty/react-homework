@@ -3,47 +3,42 @@ import pluginJsxA11y from 'eslint-plugin-jsx-a11y'
 import pluginPrettierRecommand from 'eslint-plugin-prettier/recommended'
 import pluginReact from 'eslint-plugin-react'
 import pluginReactHooks from 'eslint-plugin-react-hooks'
+import pluginReactRefresh from 'eslint-plugin-react-refresh'
 import { defineConfig, globalIgnores } from 'eslint/config'
 import globals from 'globals'
+import tseslint from 'typescript-eslint'
 
 export default defineConfig([
   // 'dist' 폴더 전체를 ESLint 검사에서 제외 (빌드된 결과물 무시)
   globalIgnores(['dist']),
 
   {
-    // 검사할 파일(src 폴더 내 js,jsx) 패턴 지정
-    files: ['src/**/*.{js,jsx}'],
-
-    // 사용할 플러그인 등록
+    files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     plugins: { js },
 
-    // 규칙 확장: js 추천 규칙 세트 적용
     extends: ['js/recommended'],
-
     settings: {
       // React 버전 자동 감지 후 관련 규칙 적용
       react: {
         version: 'detect',
       },
+      // 'import/resolver': {
+      //   typescript: true,
+      //   node: true,
+      // },
     },
-
     languageOptions: {
       globals: {
-        // 브라우저와 Node 환경의
-        // 전역 객체를 모두 사용 가능하도록 설정
         ...globals.browser,
         ...globals.node,
       },
     },
   },
-
-  // React의 JSX 런타임(automatic) 설정
+  tseslint.configs.recommended,
   pluginReact.configs.flat['jsx-runtime'],
-  // JSX 접근성(Accessibility) 권장 규칙 적용
-  pluginJsxA11y.flatConfigs.recommended,
-  // React Hooks의 올바른 사용을 위한 권장 규칙 적용
   pluginReactHooks.configs['recommended-latest'],
-  // Prettier와 ESLint 충돌 방지 및 Prettier 포맷팅 규칙 적용
+  pluginJsxA11y.flatConfigs.recommended,
+  pluginReactRefresh.configs.vite,
   pluginPrettierRecommand,
 
   {
@@ -64,7 +59,8 @@ export default defineConfig([
       // 미사용 변수 제거
       // - 코드 정리 및 메모리 최적화
       // - 밑줄(_)로 시작하는 매개변수는 예외 처리 (의도적 미사용)
-      'no-unused-vars': [
+      // - 타입스크립트에서는 "@typescript-eslint/no-unused-vars" 사용
+      '@typescript-eslint/no-unused-vars': [
         'error',
         { varsIgnorePattern: '^[A-Z_]', argsIgnorePattern: '^_' },
       ],

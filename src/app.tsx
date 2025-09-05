@@ -14,7 +14,7 @@ export default function App() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <strong>1주차 과제</strong> - 리액트 프로젝트 템플릿 만들기
+            <strong>1주 차 과제</strong> - 리액트 프로젝트 템플릿 만들기
           </a>
         </li>
         <li>
@@ -23,7 +23,7 @@ export default function App() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <strong>2주차 과제</strong> - 쿠팡 로그인 UI 개선
+            <strong>2주 차 과제</strong> - 쿠팡 로그인 UI 개선
           </a>
         </li>
         <li>
@@ -32,7 +32,7 @@ export default function App() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <strong>3주차 과제</strong> - 카드 검색 리스트 UI
+            <strong>3주 차 과제</strong> - 카드 검색 리스트 UI
           </a>
         </li>
       </ul>
