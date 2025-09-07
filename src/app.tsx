@@ -35,6 +35,15 @@ export default function App() {
             <strong>3주 차 과제</strong> - 카드 검색 리스트 UI
           </a>
         </li>
+        <li>
+          <a
+            href="./src/components/week4-homework/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <strong>4주 차 과제</strong> - React ⅹ Supabase 싱글 페이지 앱
+          </a>
+        </li>
       </ul>
     </LearnSection>
   )
